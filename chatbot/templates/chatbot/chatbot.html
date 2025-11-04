@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>College Website with Chatbot</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f7f7;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(45deg, #009688, #4caf50);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 1.2rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      width: 80%;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+    .hero {
+      background: linear-gradient(45deg, #7e57c2, #d32f2f);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #4caf50;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .btn {
+      background-color: #009688;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      display: inline-block;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #00796b;
+    }
+    .chatbot-container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    #chatbox {
+      height: 300px;
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      border-radius: 6px;
+      white-space: pre-wrap;
+    }
+    .chatbot-container input[type="text"] {
+      padding: 12px;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+    }
+    .chatbot-container button {
+      padding: 12px;
+      width: 18%;
+      background-color: #7e57c2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .chatbot-container button:hover {
+      background-color: #5e35b1;
+    }
+    footer {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    footer a {
+      color: #009688;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+        padding: 15px;
+      }
+      .hero {
+        padding: 20px;
+      }
+      nav {
+        font-size: 1rem;
+      }
+      .chatbot-container input[type="text"] {
+        width: 70%;
+      }
+      .chatbot-container button {
+        width: 25%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#admission">Admission</a>
+      <a href="#fees">Fees</a>
+      <a href="#chatbot">Chatbot</a>
+      <a href="#about">About Us</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#library">Library</a>
+      <a href="#careers">Careers</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <div class="container">
+
+    <section class="hero" id="home">
+      <h1>Welcome to Our College</h1>
+      <p>Your future starts here. Join our vibrant community and explore a world of opportunities.</p>
+    </section>
+
+    <section class="section" id="about">
+      <h2>About Us</h2>
+      <p>Our college has been shaping future leaders for over 50 years...</p>
+    </section>
+
+    <section class="section" id="admission">
+      <h2>Admission</h2>
+      <p>We offer a wide range of programs...</p>
+      <a href="/apply" class="btn">Apply Now</a>
+    </section>
+
+    <section class="section" id="fees">
+      <h2>Fee Structure</h2>
+      <p>Our fee structure is designed to offer value for your education...</p>
+      <a href="/fees" class="btn">View Fee Details</a>
+    </section>
+
+    <section class="section" id="events">
+      <h2>Upcoming Events</h2>
+      <p>Stay updated with our upcoming seminars, workshops, and cultural events.</p>
+      <a href="/events" class="btn">View Events</a>
+    </section>
+
+    <section class="section" id="chatbot">
+      <h2>College Chatbot</h2>
+      <p>Have questions? Our chatbot is here to help 24/7!</p>
+      <div class="chatbot-container">
+        <div id="chatbox"></div>
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </section>
+
+    <section class="section" id="library">
+      <h2>Library</h2>
+      <p>Access thousands of academic books and journals...</p>
+      <a href="/library" class="btn">Explore Library</a>
+    </section>
+
+    <section class="section" id="careers">
+      <h2>Careers & Placement</h2>
+      <p>Our placement team helps connect students with companies...</p>
+      <a href="/careers" class="btn">Learn More</a>
+    </section>
+
+    <section class="section" id="gallery">
+      <h2>Gallery</h2>
+      <p>View photos and videos of our vibrant campus and events...</p>
+      <a href="/gallery" class="btn">View Gallery</a>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Muhammad Saad 2025 College Name. All Rights Reserved.</p>
+    <a href="#home">Home</a> |
+    <a href="#admission">Admission</a> |
+    <a href="#fees">Fees</a> |
+    <a href="#chatbot">Chatbot</a> |
+    <a href="#about">About Us</a>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    async function sendMessageToBot(message) {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: message })
+        });
+
+        if (!response.ok) throw new Error("Network response was not ok");
+        const data = await response.json();
+        return data.response;
+      } catch (error) {
+        console.error("Error:", error);
+        return "Sorry, something went wrong. Please try again later.";
+      }
+    }
+
+    async function sendChat() {
+      const input = document.getElementById('userInput');
+      const chatbox = document.getElementById('chatbox');
+      const sendBtn = document.getElementById('sendBtn');
+
+      const message = input.value.trim();
+      if (!message) return;
+
+      chatbox.innerHTML += `<p><b>You:</b> ${message}</p>`;
+      input.value = '';
+      input.disabled = true;
+      sendBtn.disabled = true;
+
+      chatbox.scrollTop = chatbox.scrollHeight;
+
+      const reply = await sendMessageToBot(message);
+
+      chatbox.innerHTML += `<p><b>Bot:</b> ${reply}</p>`;
+      chatbox.scrollTop = chatbox.scrollHeight;
+
+      input.disabled = false;
+      sendBtn.disabled = false;
+      input.focus();
+    }
+
+    document.getElementById('userInput').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendChat();
+      }
+    });
+
+    document.getElementById('sendBtn').addEventListener('click', sendChat);
+  </script>
+</body>
+</html>
