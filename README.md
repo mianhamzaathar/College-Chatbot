@@ -1,3 +1,4 @@
+![collage.png](https://github.com/mianhamzaathar/College-Chatbot/blob/main/chatbot/collage.png)
 # College Chatbot Website — Django,  DeepSeek
 
 A full-stack college management platform featuring a context-aware AI chatbot for automated student inquiries and instant information dissemination..
